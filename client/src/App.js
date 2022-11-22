@@ -3,6 +3,8 @@ import Register from './pages/register/Register';
 import Home from './pages/home/Home';
 import Profile from './pages/profile/Profile';
 import './style.scss';
+import { useContext } from 'react';
+import { DarkModeContext } from './context/darkModeContext';
 
 import {
   createBrowserRouter,
@@ -15,10 +17,12 @@ import LeftBar from './components/leftBar/LeftBar';
 import RightBar from './components/rightBar/RightBar';
 function App() {
   const currentUser = true; //false
+  const { darkMode } = useContext(DarkModeContext);
+  //console.log(darkMode);
 
   const Layout = () => {
     return (
-      <div className='theme-dark'>
+      <div className={`theme-${darkMode ? 'dark' : 'light'}`}>
         <NavBar />
         <div style={{ display: 'flex' }}>
           <LeftBar />
