@@ -5,7 +5,7 @@ import Profile from './pages/profile/Profile';
 import './style.scss';
 import { useContext } from 'react';
 import { DarkModeContext } from './context/darkModeContext';
-
+import { AuthContext } from './context/authContext';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -15,8 +15,10 @@ import {
 import NavBar from './components/navBar/NavBar';
 import LeftBar from './components/leftBar/LeftBar';
 import RightBar from './components/rightBar/RightBar';
+
 function App() {
-  const currentUser = true; //false
+  //const currentUser = true; //false
+  const { currentUser } = useContext(AuthContext);
   const { darkMode } = useContext(DarkModeContext);
   //console.log(darkMode);
 
